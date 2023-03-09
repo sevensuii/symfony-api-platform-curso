@@ -1,0 +1,10 @@
+    1  composer require monolog doctrine phpunit
+    2  composer recipes
+    3  composer require --dev browser-kit maker
+    4  composer require monolog doctrine phpunit
+    5  composer require doctrine/annotations
+    6  composer require monolog doctrine phpunit
+    7  history
+    8  composer require --dev browser-kit maker
+    9  composer require api
+   10  history
