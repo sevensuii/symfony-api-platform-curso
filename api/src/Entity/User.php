@@ -19,6 +19,7 @@ class User implements UserInterface
     private ?string $avatar;
     private ?string $token;
     private ?string $resetPasswordToken;
+    private bool $active;
     private \DateTimeImmutable $createdAt;
     private \DateTimeImmutable $updatedAt;
 
@@ -148,9 +149,25 @@ class User implements UserInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    /**
+     * @param bool $active
+     */
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
+    }
+
+    /**
      * @return \DateTimeImmutable
      */
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -158,19 +175,19 @@ class User implements UserInterface
     /**
      * @return \DateTimeImmutable
      */
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): \DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
-    /**
-     * @param \DateTimeImmutable $updatedAt
-     */
     public function markAsUpdated(): void
     {
         $this->updatedAt = new \DateTimeImmutable();
     }
 
+    /**
+     * @return array
+     */
     public function getRoles(): array
     {
         return [];
@@ -184,6 +201,9 @@ class User implements UserInterface
     {
     }
 
+    /**
+     * @return string
+     */
     public function getUsername(): string
     {
         return $this->email;
